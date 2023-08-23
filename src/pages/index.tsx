@@ -52,13 +52,13 @@ export default function Home() {
               How long have you been attending CYC?
             </p>
             <Formik
-              initialValues={{ name: "", cg: "", level: 1 }}
+              initialValues={{ name: "", cg: "", level: 0 }}
               onSubmit={async (values, actions) => {
                 setLoading(true);
                 const id = uuid();
                 const now = Date.now();
 
-                if (!values.name || !values.cg) {
+                if (!values.name || !values.cg || values.level === 0) {
                   alert("必须填写每一个格子");
                   setLoading(false);
                   throw new Error("必须填写每一个格子");
@@ -117,7 +117,7 @@ export default function Home() {
                     onChange={(e) =>
                       void setValues({ ...values, level: e!.value })
                     }
-                    defaultValue={{ value: 1, label: "1-2 Years" }}
+                    // defaultValue={{ value: 1, label: "1-2 Years" }}
                     isSearchable={false}
                     styles={{
                       container: (baseStyles) => ({

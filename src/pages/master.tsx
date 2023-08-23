@@ -12,7 +12,7 @@ const Master: NextPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center overflow-y-auto bg-blue-500 bg-cover bg-center">
-      <main className="grid grid-cols-1 items-center justify-center gap-5 px-2 py-5 lg:grid-cols-2">
+      <main className="grid w-full grid-cols-1 items-center justify-center gap-5 px-2 py-5 lg:grid-cols-2">
         {data &&
           Object.values(data)
             .filter((p) => p?.id && !p?.approved)
