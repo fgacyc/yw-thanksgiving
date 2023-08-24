@@ -8,9 +8,10 @@ export const LiveCard: FunctionComponent<
   Post & {
     number: number;
     onClick?: () => void;
+    width: string;
     onMounted: (el: Element) => void;
   }
-> = ({ id, name, gradient, level }) => {
+> = ({ id, name, gradient, width, level }) => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -24,12 +25,13 @@ export const LiveCard: FunctionComponent<
       data-aos={level === 1 || level === 2 ? "fade-right" : "fade-left"}
       className={`${
         animate ? "aos-animate" : ""
-      } flex min-h-[80px] w-[300px] flex-col justify-center gap-3 overflow-hidden bg-gradient-to-tr ${
-        bgColor[gradient]
+      } flex min-h-[80px] w-full flex-col justify-center gap-3 overflow-hidden bg-gradient-to-tr ${
+        // bgColor[gradient]
+        "bg-black"
       } relative`}
     >
       <img
-        className={`absolute -left-4 -top-5 z-10 h-[140%]`}
+        className={`absolute -left-4 -top-5 z-10 h-[140%] rounded-full bg-white`}
         alt="open-peeps"
         src={`https://api.dicebear.com/6.x/micah/svg?seed=${name}`}
       />

@@ -28,10 +28,34 @@ const LivePage: NextPage = () => {
         className="absolute left-0 top-0 z-10 w-full object-cover"
       />
       <div className="z-20 flex w-full flex-row">
-        <CardGrid data={data} level={1} marginLeft={"ml-6"} />
-        <CardGrid data={data} level={2} marginLeft={"ml-[155px]"} />
-        <CardGrid data={data} level={3} marginLeft={"ml-[2440px]"} />
-        <CardGrid data={data} level={4} marginLeft={"ml-[155px]"} />
+        <CardGrid
+          data={data}
+          level={1}
+          marginLeft={""}
+          width="small"
+          cardWidth="full"
+        />
+        <CardGrid
+          data={data}
+          level={2}
+          marginLeft={"ml-[85px]"}
+          cardWidth={"full"}
+          width={"large"}
+        />
+        <CardGrid
+          data={data}
+          level={3}
+          marginLeft={"ml-[2350px]"}
+          cardWidth={"full"}
+          width={"large"}
+        />
+        <CardGrid
+          data={data}
+          level={4}
+          marginLeft={"ml-[85px]"}
+          cardWidth="full"
+          width={"small"}
+        />
       </div>
     </main>
   );

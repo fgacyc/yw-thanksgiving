@@ -15,12 +15,16 @@ interface Level1GridProps {
   data: Record<string, Post>;
   level: number;
   marginLeft: string;
+  width: "small" | "large";
+  cardWidth?: string;
 }
 
 export const CardGrid: FunctionComponent<Level1GridProps> = ({
   data,
+  width,
   level,
   marginLeft,
+  cardWidth,
 }) => {
   useLayoutEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
@@ -48,9 +52,22 @@ export const CardGrid: FunctionComponent<Level1GridProps> = ({
     scrollToBottom();
   }, [data]);
 
+  const widthChoice: Record<string, string> = {
+    small: "min-w-[352px] max-w-[352px]",
+    large: "min-w-[390px] max-w-[390px]",
+  };
+
   return (
-    <div className={`${marginLeft} flex w-[300px] flex-col py-32`}>
-      <p className="mb-7 w-full rounded-full bg-white py-3 text-center font-tungsten text-5xl text-black">
+    <div
+      className={`${marginLeft} flex ${widthChoice[width]} flex-col bg-white/30 px-5 py-32`}
+    >
+      <p
+        className="mb-7 w-full bg-white py-3 text-center font-tungsten text-5xl text-black"
+        style={{
+          clipPath:
+            "polygon(50px 0%, calc(100% - 50px) 0%, 100% 100%, 0% 100%)",
+        }}
+      >
         {yearLabel[level]}
       </p>
       <div
@@ -70,6 +87,7 @@ export const CardGrid: FunctionComponent<Level1GridProps> = ({
                 name={post.name}
                 key={post.id}
                 level={post.level}
+                width={cardWidth ?? "310px"}
                 id={post.id}
                 gradient={post.gradient}
                 number={1}
