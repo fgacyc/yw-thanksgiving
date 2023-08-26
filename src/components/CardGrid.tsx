@@ -59,7 +59,7 @@ export const CardGrid: FunctionComponent<Level1GridProps> = ({
 
   return (
     <div
-      className={`${marginLeft} flex ${widthChoice[width]} flex-col bg-white/30 px-5 py-32`}
+      className={`${marginLeft} flex ${widthChoice[width]} flex-col bg-black/30 px-5 py-32`}
     >
       <p
         className="mb-7 w-full bg-white py-3 text-center font-tungsten text-5xl text-black"
